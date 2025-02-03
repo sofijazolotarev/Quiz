@@ -46,7 +46,12 @@ class ViewController: UIViewController {
         
         trueButton.backgroundColor = UIColor.clear
         falseButton.backgroundColor = UIColor.clear
+
         
+        if(quizLogic.getQuestionNumber() >= quizLogic.quiz.count){
+            trueButton.alpha = 0
+            falseButton.alpha = 0
+        }
         progressBar.progress = quizLogic.getProgress()
     }
 }

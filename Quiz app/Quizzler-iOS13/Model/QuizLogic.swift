@@ -37,16 +37,21 @@ struct QuizLogic {
     }
     
     mutating func getNextQuestion(){
-        if(questionNumber + 1 < quiz.count){
+//        if(questionNumber + 1 < quiz.count){
             questionNumber += 1
-        }else{
-            questionNumber = 0
-            score = 0
-        }
+//       }
+//            else{
+//            questionNumber = 0
+//            score = 0
+//        }
     }
     
     func getText() -> String{
-        return quiz[questionNumber].text
+        if(questionNumber < quiz.count){
+            return quiz[questionNumber].text
+        }else{
+            return "You've completed the quiz, congrats!!!"
+        }
     }
     
     func getProgress() -> Float{
@@ -59,5 +64,9 @@ struct QuizLogic {
     
     func getScore() -> Int{
         return score
+    }
+    
+    func getQuestionNumber() -> Int{
+        return questionNumber
     }
 }
